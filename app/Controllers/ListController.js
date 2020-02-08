@@ -29,13 +29,31 @@ export default class ListController {
    * @param {string} listId
    */
   deleteList(listId) {
-    _listService.deleteList(listId)
-    _drawLists()
+    if (window.confirm("are you sure you want to delete this list?")) {
+      _listService.deleteList(listId)
+      _drawLists()
+    }
   }
+  /**
+   * @param {Event} event
+   * @param {string} listId
+   */
   addTask(event, listId) {
+    event.preventDefault()
     let task = event.target.newTask.value
     _listService.addTask(listId, task)
     _drawLists()
+  }
+  /**
+   * @param {any} listId
+   * @param {any} task
+   */
+  delTask(listId, task) {
+    if (window.confirm("are you sure you want to delete this Task?")) {
+
+      _listService.deleteTask(listId, task)
+      _drawLists()
+    }
   }
 }
   //TODO: Your app will need the ability to create, and delete both lists and listItems

@@ -17,7 +17,8 @@ export default class List {
 
     this.tasks.forEach(task => {
       ret += /*html*/`
-        <div class="col-12"> ${task}</div>
+        <div class="col-10"> ${task}</div>
+        <div class="col-2"><button onclick="app.listController.delTask('${this.id}','${task}')" class="btn btn-danger">delete</button></div>
       `
     });
     return ret

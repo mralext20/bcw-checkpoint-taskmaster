@@ -10,6 +10,11 @@ class ListService {
   }
   deleteList(listId) {
     _store.delList(listId)
+
+  }
+
+  deleteTask(listId, task) {
+    _store.delTask(listId, task)
   }
   /**
    * @param {EventTarget} formData

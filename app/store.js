@@ -24,12 +24,23 @@ function _loadState() {
 _loadState();
 
 //NOTE call bellow for saving the state
+//NOTE call saveState everytime you change the state in any way
 function _saveState() {
   localStorage.setItem("AlexTaskMaster", JSON.stringify(_state));
 }
 class Store {
   addTask(listId, task) {
     _state.lists[listId].tasks.push(task)
+    _saveState()
+  }
+
+  delTask(listId, task) {
+    let list = _state.lists[listId]
+    let newTasks = list.tasks.filter(t => t !== task)
+    list.tasks = newTasks
+
+    // _state.lists[listId].tasks = _state.lists[listId].tasks.filter(t => t !== task)
+    _saveState()
   }
   /**
    * @param {List} newlist
@@ -43,6 +54,7 @@ class Store {
    */
   delList(listid) {
     delete _state.lists[listid]
+    _saveState()
   }
 
   /**
@@ -61,7 +73,6 @@ class Store {
     }
     return lists;
   }
-  //NOTE call saveState everytime you change the state in any way
 
 }
 
