@@ -2,6 +2,12 @@ import List from "../Models/List.js";
 import _store from "../store.js"
 //Public
 class ListService {
+  constructor() {
+
+  }
+  deleteList(listId) {
+    _store.delList(listId)
+  }
   /**
    * @param {EventTarget} formData
    */
@@ -9,9 +15,6 @@ class ListService {
     let list = { name: formData.listName.value }
     let newlist = new List(list)
     _store.addList(newlist)
-  }
-  constructor() {
-
   }
 
   get lists() {
