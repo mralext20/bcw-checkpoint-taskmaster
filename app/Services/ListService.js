@@ -2,6 +2,9 @@ import List from "../Models/List.js";
 import _store from "../store.js"
 //Public
 class ListService {
+  addTask(listId, task) {
+    _store.addTask(listId, task)
+  }
   constructor() {
 
   }

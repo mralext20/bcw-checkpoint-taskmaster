@@ -28,6 +28,9 @@ function _saveState() {
   localStorage.setItem("AlexTaskMaster", JSON.stringify(_state));
 }
 class Store {
+  addTask(listId, task) {
+    _state.lists[listId].tasks.push(task)
+  }
   /**
    * @param {List} newlist
    */

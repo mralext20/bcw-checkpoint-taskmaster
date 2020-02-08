@@ -30,10 +30,17 @@ export default class List {
   <div class="row">
   ${this.listTemplate}
   </div>
+  <form onsubmit="app.listController.addTask(event, '${this.id}')">
+                    <div class="form-group">
+                        <label for="">Ingredients</label>
+                        <input type="text" name="newTask" class="form-control" placeholder=""
+                            aria-describedby="helpId">
+                        <button class="btn btn-primary" type="submit">
+                            Add Task
+                        </button>
+                    </div>
+                </form>
 </div>
     `
   }
-
-
-  //For starting out, your tasks may be strings alone, but later you may wish to turn them into full objects, that will be up to you
 }
