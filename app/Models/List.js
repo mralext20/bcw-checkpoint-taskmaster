@@ -27,13 +27,13 @@ export default class List {
     return /*html*/`
 <div class="col-12 col-md-3">
   <h3>${this.name}</h3>
-  <button class="btn btn-primary" onclick="app.listController.deleteList('${this.id}')">delete list</button>
+  <button class="btn btn-danger" onclick="app.listController.deleteList('${this.id}')">delete list</button>
   <div class="row">
   ${this.listTemplate}
   </div>
   <form onsubmit="app.listController.addTask(event, '${this.id}')">
                     <div class="form-group">
-                        <label for="">Ingredients</label>
+                        <label for="">Task</label>
                         <input type="text" name="newTask" class="form-control" placeholder=""
                             aria-describedby="helpId">
                         <button class="btn btn-primary" type="submit">

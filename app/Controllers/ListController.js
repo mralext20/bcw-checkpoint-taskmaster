@@ -29,10 +29,25 @@ export default class ListController {
    * @param {string} listId
    */
   deleteList(listId) {
-    if (window.confirm("are you sure you want to delete this list?")) {
-      _listService.deleteList(listId)
-      _drawLists()
-    }
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.value) {
+        _listService.deleteList(listId)
+        _drawLists()
+        Swal.fire(
+          'Deleted!',
+          'Your List has been deleted.',
+          'success'
+        )
+      }
+    })
   }
   /**
    * @param {Event} event
@@ -50,11 +65,27 @@ export default class ListController {
    * @param {any} task
    */
   delTask(listId, task) {
-    if (window.confirm("are you sure you want to delete this Task?")) {
 
-      _listService.deleteTask(listId, task)
-      _drawLists()
-    }
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.value) {
+        _listService.deleteTask(listId, task)
+        _drawLists()
+        Swal.fire(
+          'Deleted!',
+          'Your Task has been deleted.',
+          'success'
+        )
+      }
+    })
   }
 }
   //TODO: Your app will need the ability to create, and delete both lists and listItems
