@@ -20,7 +20,7 @@ class ListService {
    * @param {EventTarget} formData
    */
   createList(formData) {
-    let list = { name: formData.listName.value }
+    let list = { name: formData.listName.value, color: formData.color.value }
     let newlist = new List(list)
     _store.addList(newlist)
   }
