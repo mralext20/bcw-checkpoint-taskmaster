@@ -27,7 +27,7 @@ export default class List {
     return /*html*/`
 <div class="col-12 col-md-3">
   <h3>${this.name}</h3>
-  <button onclick="app.listController.deleteList('${this.id}')">delete list</button>
+  <button class="btn btn-primary" onclick="app.listController.deleteList('${this.id}')">delete list</button>
   <div class="row">
   ${this.listTemplate}
   </div>
