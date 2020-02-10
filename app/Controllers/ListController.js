@@ -40,6 +40,7 @@ export default class ListController {
    */
   addTask(event, listId) {
     event.preventDefault()
+    // @ts-ignore
     let task = event.target.newTask.value
     _listService.addTask(listId, task)
     _drawLists()

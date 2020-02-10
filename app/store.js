@@ -36,7 +36,19 @@ class Store {
 
   delTask(listId, task) {
     let list = _state.lists[listId]
-    let newTasks = list.tasks.filter(t => t !== task)
+    let flag = false
+    let newTasks = list.tasks.filter(t => {
+      if (flag) {
+        return true
+      }
+      if (t !== task) {
+        return true
+      } else {
+        flag = true
+        return false
+      }
+
+    })
     list.tasks = newTasks
 
     // _state.lists[listId].tasks = _state.lists[listId].tasks.filter(t => t !== task)
